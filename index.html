@@ -1558,7 +1558,7 @@ const trackLabels={home:'Side A — Work',about:'Side B — About',playground:'S
 // Nav must be defined before navigateTo so hash restore works on refresh
 const nav=document.querySelector('nav');
 let _lastST=0;
-function _setNavBg(id){if(window.innerWidth>768)return;nav.style.background=id==='home'?'#f0e8fa':'var(--bg)';}
+function _setNavBg(id){if(window.innerWidth>768)return;nav.style.background='var(--bg)';}
 _setNavBg('home');
 
 function navigateTo(id){
