@@ -335,7 +335,7 @@ nav.nav-hidden{transform:translateY(-120%);}
   .page:not(.active){display:none;}
 
   /* ─── nav ─── */
-  nav{padding:16px 20px;justify-content:center;background:#f0e8fa;}
+  nav{padding:16px 20px;justify-content:center;background:var(--bg);}
   .nav-logo{display:none;}
   .nav-links{gap:20px;}
   .nav-links a{font-size:var(--t7);}
@@ -1558,6 +1558,8 @@ const trackLabels={home:'Side A — Work',about:'Side B — About',playground:'S
 // Nav must be defined before navigateTo so hash restore works on refresh
 const nav=document.querySelector('nav');
 let _lastST=0;
+function _setNavBg(id){if(window.innerWidth>768)return;nav.style.background=id==='home'?'#f0e8fa':'var(--bg)';}
+_setNavBg('home');
 
 function navigateTo(id){
   const cur=document.querySelector('.page.active');
@@ -1567,6 +1569,7 @@ function navigateTo(id){
   document.querySelectorAll('.nav-links a[data-page]').forEach(a=>a.classList.toggle('active',a.dataset.page===id));
   if(cur){cur.classList.add('exit');cur.classList.remove('active');setTimeout(()=>cur.classList.remove('exit'),600);}
   nav.classList.remove('nav-hidden');
+  _setNavBg(id);
   _lastST=0;
   window.scrollTo({top:0,behavior:'instant'});
   setTimeout(()=>{nxt.scrollTop=0;window.scrollTo({top:0,behavior:'instant'});nxt.classList.add('active');setTimeout(()=>{initReveals(nxt);if(id==='playground')fitScatterDots();},80);_applyNC();},60);
