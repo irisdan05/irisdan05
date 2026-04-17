@@ -1559,7 +1559,7 @@ const trackLabels={home:'Side A — Work',about:'Side B — About',playground:'S
 // Nav must be defined before navigateTo so hash restore works on refresh
 const nav=document.querySelector('nav');
 let _lastST=0;
-function _setHtmlBg(id){if(window.innerWidth>768)return;const c=id==='home'?'#EBE4F6':'#FBF5FF';document.documentElement.style.background=c;const m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',c);}
+function _setHtmlBg(id){if(window.innerWidth>768)return;const c=id==='home'?'#EBE4F6':'#FBF5FF';document.documentElement.style.background=c;document.body.style.background=c;const m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',c);}
 _setHtmlBg('home');
 
 function navigateTo(id){
