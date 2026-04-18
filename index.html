@@ -324,7 +324,7 @@ nav.nav-hidden{transform:translateY(-120%);}
 @keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
 @keyframes pulse{0%,100%{opacity:.4;transform:scale(1);}50%{opacity:.9;transform:scale(1.3);}}
 @keyframes scrollBounce{0%,100%{transform:translateY(0);}50%{transform:translateY(5px);}}
-@media(max-width:768px){#page-home,#page-about{background:#EBE4F6!important;}.page:not(#page-home):not(#page-about){background:#FBF5FF!important;}}
+@media(max-width:768px){.page{background:#FBF5FF!important;}}
 
 @media(max-width:480px){
   .cursor,.cursor-ring{display:none;}
@@ -1559,8 +1559,8 @@ const trackLabels={home:'Side A — Work',about:'Side B — About',playground:'S
 // Nav must be defined before navigateTo so hash restore works on refresh
 const nav=document.querySelector('nav');
 let _lastST=0;
-function _setHtmlBg(id){if(window.innerWidth>768)return;document.documentElement.style.background=(id==='home'||id==='about')?'#EBE4F6':'#FBF5FF';}
-_setHtmlBg('home');
+function _setHtmlBg(){if(window.innerWidth>768)return;document.documentElement.style.background='#FBF5FF';}
+_setHtmlBg();
 
 function navigateTo(id){
   const cur=document.querySelector('.page.active');
@@ -1570,7 +1570,6 @@ function navigateTo(id){
   document.querySelectorAll('.nav-links a[data-page]').forEach(a=>a.classList.toggle('active',a.dataset.page===id));
   if(cur){cur.classList.add('exit');cur.classList.remove('active');setTimeout(()=>cur.classList.remove('exit'),600);}
   nav.classList.remove('nav-hidden');
-  _setHtmlBg(id);
   _lastST=0;
   window.scrollTo({top:0,behavior:'instant'});
   setTimeout(()=>{nxt.scrollTop=0;window.scrollTo({top:0,behavior:'instant'});nxt.classList.add('active');setTimeout(()=>{initReveals(nxt);if(id==='playground')fitScatterDots();},80);_applyNC();},60);
