@@ -43,7 +43,7 @@ nav.nav-hidden{transform:translateY(-120%);}
 .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:100%;height:1px;background:var(--purple);transition:transform .3s,opacity .3s;transform:translateY(6px);opacity:0;}
 .nav-links a.active::after{transform:translateY(0);opacity:1;}
 .nav-links a.active{color:var(--purple-text);}
-@media(hover:hover){.nav-links a:hover{color:var(--purple-text);}.nav-links a:hover::after{transform:translateY(0);opacity:1;}}
+.nav-links a:hover{color:var(--purple-text);}.nav-links a:hover::after{transform:translateY(0);opacity:1;}
 .page{position:fixed;inset:0;opacity:0;pointer-events:none;transform:translateY(14px);transition:opacity .5s cubic-bezier(.4,0,.2,1),transform .5s cubic-bezier(.4,0,.2,1);overflow-y:auto;overflow-x:hidden;padding-bottom:60px;scrollbar-gutter:stable;}
 .snav-btn{display:block;width:100%;text-align:left;background:none;border:none;font-family:'Pacaembu',sans-serif;font-size:var(--t7);color:var(--text-faint);cursor:none;padding:14px 0;line-height:1.4;transition:color .18s;}
 .snav-btn:hover,.snav-btn.active{color:var(--purple-text);}
@@ -349,7 +349,7 @@ nav.nav-hidden{transform:translateY(-120%);}
 
   /* ─── home cases ─── */
   .home-cases{display:flex !important;flex-direction:column;overflow-x:visible;overflow-y:visible;scroll-snap-type:none;padding:0 20px 72px !important;gap:20px !important;}
-  .home-cases .section-label{margin-bottom:20px;}
+  .home-cases .section-label{margin-bottom:20px;font-size:0;gap:0;}
   .sc-card{width:100% !important;}
   #page-home .page-footer{background-image:linear-gradient(to right,transparent 20px,rgba(155,123,192,.18) 20px,rgba(155,123,192,.18) calc(100% - 20px),transparent calc(100% - 20px));}
   .page-footer{padding:40px 20px 36px;margin-top:32px;}
@@ -1560,6 +1560,7 @@ function navigateTo(id){
   const cur=document.querySelector('.page.active');
   const nxt=document.getElementById('page-'+id);
   if(!nxt||nxt===cur)return;
+  const nl=document.querySelector('.nav-links');nl.style.pointerEvents='none';requestAnimationFrame(()=>{nl.style.pointerEvents='';});
   document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));
   document.querySelectorAll('.nav-links a[data-page="'+id+'"]').forEach(a=>a.classList.add('active'));
   if(cur){cur.classList.add('exit');cur.classList.remove('active');setTimeout(()=>cur.classList.remove('exit'),600);}
