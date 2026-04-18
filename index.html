@@ -335,9 +335,9 @@ nav.nav-hidden{transform:translateY(-120%);}
   .page:not(.active){display:none;}
 
   /* ─── nav ─── */
-  nav{padding:16px 20px;justify-content:center;}
+  nav{padding:16px 20px;}
   .nav-logo{display:none;}
-  .nav-links{gap:20px;}
+  .nav-links{width:100%;display:flex;justify-content:space-between;gap:0;}
   .nav-links a{font-size:var(--t7);}
 
   /* ─── hero ─── */
@@ -470,6 +470,9 @@ nav.nav-hidden{transform:translateY(-120%);}
 /* ─── tablet (768px–1100px) ─── */
 @media(min-width:769px) and (max-width:1100px){
   nav{padding:22px 36px;}
+  .nav-logo{display:block;}
+  .nav-links{width:auto;display:flex;gap:28px;}
+  .nav-links li:first-child,.nav-links li:nth-child(2),.nav-links li:last-child{display:list-item;justify-content:unset;}
   .hero{padding:80px 36px;}
   .home-cases{padding:28px 36px 80px;}
   .page-footer{padding:44px 36px 40px;}
@@ -569,6 +572,18 @@ nav.nav-hidden{transform:translateY(-120%);}
   <div class="home-cases">
     <div class="section-label reveal" style="grid-column:1/-1;margin-bottom:8px;">Selected Work</div>
 
+    <div class="sc-card reveal" data-page="parpro" style="cursor:none;">
+      <div class="sc-paper">
+        <div class="sc-img" style="overflow:hidden;padding:0;">
+          <video src="images/parproanimation.mov" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;display:block;clip-path:inset(0 0 2px 0);"></video>
+        </div>
+        <div class="sc-caption">
+          <span class="sc-title">Parpro Consulting Ltd.</span>
+          <span class="sc-meta">Web &amp; Brand</span>
+        </div>
+      </div>
+    </div>
+
     <div class="sc-card reveal" data-page="lumeno" style="cursor:none;">
       <div class="sc-paper">
         <div class="sc-img" style="background:#ffffff;display:flex;align-items:center;justify-content:center;">
@@ -579,18 +594,6 @@ nav.nav-hidden{transform:translateY(-120%);}
         <div class="sc-caption">
           <span class="sc-title">Lumeno AI</span>
           <span class="sc-meta">Internship</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="sc-card reveal" data-page="parpro" style="cursor:none;">
-      <div class="sc-paper">
-        <div class="sc-img" style="overflow:hidden;padding:0;">
-          <video src="images/parproanimation.mov" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;display:block;clip-path:inset(0 0 2px 0);"></video>
-        </div>
-        <div class="sc-caption">
-          <span class="sc-title">Parpro Consulting Ltd.</span>
-          <span class="sc-meta">Web &amp; Brand</span>
         </div>
       </div>
     </div>
