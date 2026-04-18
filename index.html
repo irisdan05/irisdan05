@@ -304,7 +304,7 @@ nav.nav-hidden{transform:translateY(-120%);}
 .audio-track-label{font-size:var(--t6);letter-spacing:.15em;text-transform:uppercase;color:var(--text-soft);white-space:nowrap;}
 .page-footer{background:transparent;padding:52px 52px 48px;margin-top:80px;border-top:none;display:flex;flex-direction:column;align-items:flex-start;text-align:left;gap:0;}
 #page-home .page-footer{background-image:linear-gradient(to right,transparent 52px,rgba(155,123,192,.18) 52px,rgba(155,123,192,.18) calc(100% - 52px),transparent calc(100% - 52px));background-size:100% 1px;background-repeat:no-repeat;background-position:top;}
-#page-about .page-footer,#page-playground .page-footer,#page-case-pulse .page-footer,#page-case-setdm .page-footer,#page-case-parpro .page-footer{border-top:1px solid rgba(155,123,192,.18);}
+#page-about .page-footer,#page-playground .page-footer,#page-lumeno .page-footer,#page-setdm .page-footer,#page-parpro .page-footer{border-top:1px solid rgba(155,123,192,.18);}
 .page-footer{margin-top:0!important;}
 .footer-eyebrow{display:none;}
 .footer-cta{font-family:'Lora',serif;font-size:clamp(var(--t4),3vw,var(--t3));font-weight:400;font-style:italic;color:var(--text);line-height:1.2;margin-bottom:24px;}
@@ -401,7 +401,7 @@ nav.nav-hidden{transform:translateY(-120%);}
   .pg-float-hint{display:none;}
 
   /* ─── case studies ─── */
-  #page-case-pulse>div,#page-case-spectrum>div,#page-case-bloom>div,#page-case-setdm>div{padding:24px 20px 40px !important;}
+  #page-lumeno>div,#page-case-spectrum>div,#page-case-bloom>div,#page-setdm>div{padding:24px 20px 40px !important;}
   .cs-meta-grid{grid-template-columns:1fr !important;gap:8px !important;}
 
   /* ─── audio bar ─── */
@@ -416,7 +416,7 @@ nav.nav-hidden{transform:translateY(-120%);}
   .hero-visual{display:none !important;}
 
   /* ─── parpro (was missing) ─── */
-  #page-case-parpro>div{padding:24px 20px 40px !important;}
+  #page-parpro>div{padding:24px 20px 40px !important;}
 
   /* ─── work layout: hide sidebar, full-width main ─── */
   .work-layout{grid-template-columns:1fr !important;gap:0 !important;}
@@ -470,7 +470,7 @@ nav.nav-hidden{transform:translateY(-120%);}
   .page-footer{padding:44px 36px 40px;}
   #page-about>div{padding:110px 60px 0 !important;}
   #page-playground>div{padding:110px 36px 0 !important;}
-  #page-case-pulse>div,#page-case-spectrum>div,#page-case-bloom>div,#page-case-setdm>div,#page-case-parpro>div{padding:110px 48px 60px !important;}
+  #page-lumeno>div,#page-case-spectrum>div,#page-case-bloom>div,#page-setdm>div,#page-parpro>div{padding:110px 48px 60px !important;}
   .about-grid{grid-template-columns:1fr;gap:28px;}
   .about-image-wrap{position:static;order:-1;}
   .about-photo-frame{flex:none;}
@@ -525,9 +525,9 @@ nav.nav-hidden{transform:translateY(-120%);}
   .cs-back-sm{left:48px;}
 }
 
-/* ─── mobile cs-back ─── */
-@media(max-width:768px){
-  .cs-back,.cs-back-sm{position:static;display:inline-flex;margin-top:68px;margin-left:20px;margin-bottom:0;top:auto;left:auto;}
+/* ─── mobile/iPad cs-back ─── */
+@media(max-width:1100px){
+  .cs-back,.cs-back-sm{display:none;}
 }
 
 </style>
@@ -564,7 +564,7 @@ nav.nav-hidden{transform:translateY(-120%);}
   <div class="home-cases">
     <div class="section-label reveal" style="grid-column:1/-1;margin-bottom:8px;">Selected Work</div>
 
-    <div class="sc-card reveal" data-page="case-pulse" style="cursor:none;" onclick="navigateTo('case-pulse')">
+    <div class="sc-card reveal" data-page="lumeno" style="cursor:none;" onclick="navigateTo('lumeno')">
       <div class="sc-paper">
         <div class="sc-img" style="background:#ffffff;display:flex;align-items:center;justify-content:center;">
           <div style="width:80%;overflow:hidden;">
@@ -578,7 +578,7 @@ nav.nav-hidden{transform:translateY(-120%);}
       </div>
     </div>
 
-    <div class="sc-card reveal" data-page="case-parpro" style="cursor:none;" onclick="navigateTo('case-parpro')">
+    <div class="sc-card reveal" data-page="parpro" style="cursor:none;" onclick="navigateTo('parpro')">
       <div class="sc-paper">
         <div class="sc-img" style="overflow:hidden;padding:0;">
           <video src="images/parproanimation.mov" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;display:block;clip-path:inset(0 0 2px 0);"></video>
@@ -590,7 +590,7 @@ nav.nav-hidden{transform:translateY(-120%);}
       </div>
     </div>
 
-    <div class="sc-card reveal" data-page="case-setdm" style="cursor:none;" onclick="navigateTo('case-setdm')">
+    <div class="sc-card reveal" data-page="setdm" style="cursor:none;" onclick="navigateTo('setdm')">
       <div class="sc-paper">
         <div class="sc-img" style="overflow:hidden;padding:0;">
           <img src="images/temp%20setdm.png" alt="SetDM AI" style="width:100%;height:100%;object-fit:cover;display:block;">
@@ -798,7 +798,7 @@ nav.nav-hidden{transform:translateY(-120%);}
 </div>
 
 <!-- CASE STUDY: PULSE (Lumeno AI) -->
-<div class="page" id="page-case-pulse">
+<div class="page" id="page-lumeno">
   <a href="#" data-page="home" class="cs-back"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><line x1="13" y1="5" x2="1" y2="5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><polyline points="5,1 1,5 5,9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>Back</a>
   <div style="padding:144px 127px 80px;min-height:100vh;display:flex;flex-direction:column;">
 
@@ -944,7 +944,7 @@ nav.nav-hidden{transform:translateY(-120%);}
 </div>
 
 <!-- CASE STUDY: SETDM AI -->
-<div class="page" id="page-case-setdm">
+<div class="page" id="page-setdm">
   <a href="#" data-page="home" class="cs-back"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><line x1="13" y1="5" x2="1" y2="5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><polyline points="5,1 1,5 5,9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>Back</a>
   <div style="padding:144px 127px 80px;min-height:100vh;display:flex;flex-direction:column;">
 
@@ -1008,7 +1008,7 @@ nav.nav-hidden{transform:translateY(-120%);}
 
 
 <!-- CASE STUDY: PARPRO -->
-<div class="page" id="page-case-parpro">
+<div class="page" id="page-parpro">
   <a href="#" data-page="home" class="cs-back"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><line x1="13" y1="5" x2="1" y2="5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><polyline points="5,1 1,5 5,9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>Back</a>
   <div style="padding:144px 127px 80px;min-height:100vh;display:flex;flex-direction:column;">
 
@@ -1551,7 +1551,7 @@ document.addEventListener('mouseout',e=>{
 const vm=document.getElementById('vendingMachine');
 if(vm){vm.addEventListener('click',()=>{cursorColorIdx=(cursorColorIdx+1)%3;cursor.style.filter=cursorFilters[cursorColorIdx];});}
 
-const trackLabels={home:'Side A — Work',about:'Side B — About',playground:'Side B — Playground','case-pulse':'Side A — Pulse','case-setdm':'Side A — SetDM','case-parpro':'Side A — Parpro','case-spectrum':'Side A — Spectrum','case-bloom':'Side A — Bloom'};
+const trackLabels={home:'Side A — Work',about:'Side B — About',playground:'Side B — Playground','lumeno':'Side A — Pulse','setdm':'Side A — SetDM','parpro':'Side A — Parpro','case-spectrum':'Side A — Spectrum','case-bloom':'Side A — Bloom'};
 // Nav must be defined before navigateTo so hash restore works on refresh
 const nav=document.querySelector('nav');
 let _lastST=0;
@@ -1616,7 +1616,7 @@ window.addEventListener('scroll',revealCheck,{passive:true});
 initReveals(document.getElementById('page-home'));
 
 // Case study — paragraph fade in on scroll
-['page-case-pulse','page-case-setdm'].forEach(function(pid){
+['page-lumeno','page-setdm'].forEach(function(pid){
   (function(){
     const page=document.getElementById(pid);
     if(!page)return;
@@ -1841,7 +1841,7 @@ window.addEventListener('load',fitScatterDots);
       if(btn) btn.style.color = nav===id ? 'var(--purple-text)' : 'var(--text-faint)';
     });
   }
-  const page = document.getElementById('page-case-pulse');
+  const page = document.getElementById('page-lumeno');
   if(!page) return;
   const observer = new IntersectionObserver((entries)=>{
     entries.forEach(entry=>{
